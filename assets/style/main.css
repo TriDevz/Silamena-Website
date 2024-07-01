@@ -23,7 +23,6 @@
 }
 body {
     background-color: #538392;
-    overflow-x: hidden;
 }
 .center {
     width: 100%;
@@ -41,6 +40,7 @@ body {
     width: 96%;
     border-radius: 10px;
     position: fixed;
+    overflow-x: hidden;
     z-index: 2;
 }
 .navbar .title-text {
