@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+* {
+    font-family: "Playwrite DE Grund", cursive;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    -webkit-user-drag: none;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    user-select: none;
+}
+body {
+    background-color: #538392;
+}
+.center {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar{
+    height: 140px;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1B3C59;
+    width: 96%;
+    border-radius: 10px;
+    position: fixed;
+    overflow-x: hidden;
+    z-index: 2;
+}
+.navbar .title-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+}
+.navbar .title-text h1 {
+    font-family: "Margarine", sans-serif;
+}
+.navbar .title-text img {
+    width: 100px;
+    border-radius: 10%;
+}
+.navbar .search-button img:hover {
+    transform: scale(1.03);
+}
+.navbar .title-text h1 {
+    margin-left: 60px;
+    font-size: 50px;
+}
+.navbar .search-button img {
+    width: 40px;
+    cursor: pointer;
+    background: white;
+    padding: 5px;
+    border-radius: 2px;
+    margin: 0 4px;
+}
+.navbar .search-button {
+    margin-right: 40px;
+}
+.navbar .title-text h1.off {
+    animation: disappear 0.1s ease-in-out forwards;
+}
+#search-button.off {
+    animation: disappear 0.1s ease-in-out forwards;
+}
+
+
+.search-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    position: absolute;
+}
+.search-bar.active {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+}
+.search-bar.off {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+}
+.search-bar input {
+    width: 60%;
+    height: 60px;
+    color: black;
+    font-size: 30px;
+    background-color: #E7BCDE;
+    padding: 10px 40px;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid black;
+    font-family: "Margarine", sans-serif;
+}
+.search-bar img {
+    padding: 10px;
+    width: 60px;
+    background-color: #E7BCDE;
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid black;
+}
+
+
+.add-container {
+    width: 100%;
+    height: 80px;
+    margin-top: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: fixed;
+    z-index: 2;
+}
+.add-button {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #36BA98;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 2%;
+}
+.add-button:hover {
+    transform: translateY(-2px);
+}
+.add-button img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 280px;
+}
+.word-container {
+    margin: 10px 0;
+    width: 80%;
+    border-radius: 20px;
+    background-color: #DBE2EF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+.word-container:hover {
+    transform: translateY(-2px);
+    z-index: 1;
+}
+.word-image {
+    height: 100px;
+    padding: 10px;
+}
+.word-image img {
+    width: 100px;
+    border-radius: 2vh;
+}
+.word-info {
+    width: 80%;
+    margin-right: 10px;
+}
+.word-info h1 {
+    font-weight: 700;
+    color: black;
+    font-size: 30px;
+}
+.word-info h2 {
+    font-weight: 600;
+    color: #222831;
+    font-size: 25px;
+}
+.word-title {
+    height: 100px;
+    width: calc(100% - 10px);
+    padding-left: 10px;
+    background-color: #00ADB5;
+    border-radius: 2vh;
+    display: flex;
+    align-items: center;
+}
+.word-title img {
+    width: 20px;
+    margin: 0 20px;
+}

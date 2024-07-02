@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Word
+        link(rel="stylesheet", href="../assets/style/new.css")
+        link(rel="stylesheet", href="../assets/style/phone.css")
+    body
+        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="window.location.href = '/'")
+        .center
+            form#new-word-form(action="/new-word", method="POST")
+                label(for="name") Silamena Word
+                input#name(type="text", name="name", placeholder="Insert word")
+                label(for="etymology") Word's etymology
+                input#etymology(type="text", name="etymology", placeholder="Insert etymology")
+                label(for="role") Grammatical Function
+                select#role(name="role", placeholder="salve")
+                    option(value="11") Other
+                    option(value="1") Noun
+                    option(value="2") Verb
+                    option(value="3") Number
+                    option(value="4") Conjuction
+                    option(value="5") Preposition
+                    option(value="6") Adverb
+                    option(value="7") Auxiliary
+                    option(value="8") Adjective
+                    option(value="9") Pronoun
+                    option(value="10") Interjection
+                label(for="english") English translation
+                input#english(type="text", name="english", placeholder="Insert english translation")
+                label(for="description") Word Description
+                textarea#description(type="text", name="description", placeholder="Insert description")
+                label(for="synonyms") Synonyms
+                input#synonyms(type="text", name="synonyms", placeholder="Insert synonyms")
+                input#submit(type="submit", value="Submit" style="margin-top: 40px; height: 60px; width: calc(60% + 20px); cursor: pointer;")

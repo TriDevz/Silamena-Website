@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="icon", type="image/x-icon" href="/assets/images/logo_dictionary-rounded.png")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Silamena Dictionary
+        link(rel="stylesheet", href="assets/style/main.css")
+        link(rel="stylesheet", href="assets/style/phone.css")
+        script(src="assets/scripts/roles.js")
+    body
+        .center(style="flex-direction: column;")
+            .navbar
+                .title-text
+                    img(src="assets/images/logo.png")
+                    h1 Silamena Dictionary
+                .search-button
+                    img(src="assets/images/search.png", alt="Search Icon")#search-button
+                .search-bar
+                    img(src="assets/images/back.png", alt="Back button")#back-button
+                    input(type="text", name="search", placeholder="Search a word")#search-input
+        .add-container
+            .add-button(onclick="window.location.href = '/new';")
+                img(src="assets/images/add.png")
+                h1 Add
+        .main-container
+            each word in list
+                .word-container(onclick=`window.location.href = '/word/${word.name}'`)
+                    .word-image
+                        img(src=`assets/images/roles/${word.role}.png`)
+                    .word-info
+                        .word-title
+                            h1 #{word.name} 
+                            img(src="assets/images/right-arrow.png")
+                            h2 #{word.english}
+
+    script(src="assets/scripts/search-animation.js")
+    script(src="assets/scripts/search.js")

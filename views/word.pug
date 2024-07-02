@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Word
+        link(rel="stylesheet", href="../assets/style/word.css")
+        link(rel="stylesheet", href="../assets/style/phone.css")
+    body
+        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="window.location.href = '/'")
+        .center
+            .main-container
+                .title-container
+                    h1 #{word.name}
+                .info-container
+                    div
+                        h1 
+                            span.key-word Translation:
+                            span  #{word.english}
+                        h1 
+                            span.key-word Etymology:
+                            span  #{word.etymology}
+                        h1 
+                            span.key-word Synonyms:
+                            span  #{word.synonyms}
+                .description-container
+                    h2 #{word.description}
