@@ -2,11 +2,14 @@ const sb = document.querySelector('#search-button');
 const n = document.querySelector('.navbar');
 const sbar = document.querySelector('.search-bar');
 const bb = document.querySelector('#back-button');
-const inp = document.querySelector('#search-input');
-const title = document.querySelector('.navbar .title-text h1');
+const sinp = document.querySelector('#search-input');
+const title = document.querySelector('.navbar .title-text');
 
 var searchOn = false;
 function searchSwitch() {searchOn = !searchOn}
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function off() {
     title.classList.remove('off');
@@ -23,6 +26,9 @@ sb.addEventListener('click', () => {
         sbar.classList.add('active');
         sbar.classList.remove('off');
         searchSwitch();
+        sleep(500).then(() => {
+            sinp.focus();
+        });
     }
 });
 bb.addEventListener('click', () => {
@@ -32,7 +38,7 @@ bb.addEventListener('click', () => {
     }
 });
 document.addEventListener('click', (event) => {
-    if(event.target !== sb && !n.contains(event.target)) {
+    if(event.target !== sb && !sinp.contains(event.target)) {
         if(searchOn) {
             off();
             return;

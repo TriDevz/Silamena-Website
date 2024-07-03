@@ -1,11 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+@keyframes appear {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
 @keyframes disappear {
     from {
         opacity: 1;
-    }
-    to {
+    } to {
         opacity: 0;
+    }
+}
+@keyframes scendi {
+    from {
+        transform: translateY(0);
+    } to {
+        transform: translateY(150%);
+    }
+}
+@keyframes sali {
+    from {
+        transform: translateY(150%);
+    } to {
+        transform: translateY(0);
     }
 }
 
@@ -20,6 +40,9 @@
     font-style: normal;
     color: white;
     user-select: none;
+}
+.black {
+    animation: appear 1s ease-in-out forwards;
 }
 body {
     background-color: #538392;
@@ -40,7 +63,7 @@ body {
     width: 96%;
     border-radius: 10px;
     position: fixed;
-    overflow-x: hidden;
+    overflow: hidden;
     z-index: 2;
 }
 .navbar .title-text {
@@ -48,6 +71,13 @@ body {
     align-items: center;
     justify-content: center;
     margin-left: 40px;
+    animation: sali 0.1s ease-in-out forwards;
+    animation: appear 0.7s ease-in-out forwards;
+}
+.navbar .title-text:hover {
+    background-color: rgba(0, 0, 0, 0.315);
+    padding: 10px;
+    border-radius: 10px;
 }
 .navbar .title-text h1 {
     font-family: "Margarine", sans-serif;
@@ -74,11 +104,12 @@ body {
 .navbar .search-button {
     margin-right: 40px;
 }
-.navbar .title-text h1.off {
+.navbar .title-text.off {
     animation: disappear 0.1s ease-in-out forwards;
+    animation: scendi 0.4s ease-in-out forwards;
 }
 #search-button.off {
-    animation: disappear 0.1s ease-in-out forwards;
+    animation: disappear 0.4s ease-in-out forwards;
 }
 
 
@@ -101,7 +132,7 @@ body {
     width: 100%;
 }
 .search-bar input {
-    width: 60%;
+    width: 80%;
     height: 60px;
     color: black;
     font-size: 30px;
@@ -132,14 +163,16 @@ body {
     z-index: 2;
 }
 .add-button {
-    width: 10%;
+    padding: 5px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #36BA98;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     margin-right: 2%;
+    margin-top: 10px;
+    font-size: 15px;
 }
 .add-button:hover {
     transform: translateY(-2px);
