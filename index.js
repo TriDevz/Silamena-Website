@@ -4,7 +4,6 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const pug = require('pug');
 const path = require('path');
 
 //USES
@@ -13,6 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+function filterArray(arr, init) {
+    return arr.filter(string => string.startsWith(init));
+}
 
 
 app.get('/word/:word', (req, res) => {
@@ -49,7 +52,7 @@ app.get('/word/exists/:word', (req, res) => {
         console.error(error);
     });
 })
-app.get('/new', (req, res) => {
+app.get('/new/word', (req, res) => {
     res.render('new', {});
 });
 app.post('/new-word', (req, res) => {
@@ -61,6 +64,7 @@ app.post('/new-word', (req, res) => {
     
 });
 app.get('/', (req, res) => {
+
     axios.get('http://localhost:3005/api/words/all-english').then(response => {
         let data = {
             list: response.data
