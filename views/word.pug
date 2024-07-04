@@ -6,8 +6,12 @@ html(lang="en")
         title Word
         link(rel="stylesheet", href="../assets/style/word.css")
         link(rel="stylesheet", href="../assets/style/phone.css")
+        script(src="../assets/scripts/roles.js")
+        script(src="../assets/scripts/parser.js")
     body
-        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="window.location.href = '/'")
+        input#description-placeholder(type="text", name="description", hidden, value=`${word.description}`)
+        input#synonyms-placeholder(type="text", name="synonyms", hidden, value=`${word.synonyms}`)
+        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="history.back()")
         .center
             .main-container
                 .title-container
@@ -18,10 +22,18 @@ html(lang="en")
                             span.key-word Translation:
                             span  #{word.english}
                         h1 
+                            span.key-word Role:
+                            span#role
+                        h1 
                             span.key-word Etymology:
                             span  #{word.etymology}
                         h1 
                             span.key-word Synonyms:
-                            span  #{word.synonyms}
-                .description-container
-                    h2 #{word.description}
+                            span#synonyms-text
+                .description-container#description-container
+                    h2
+    script document.querySelector('#role').innerHTML = " " + roles[!{word.role}];
+    script const description = document.querySelector('#description-placeholder').value;
+    script const synonyms = document.querySelector('#synonyms-placeholder').value;
+    script document.querySelector('#description-container h2').innerHTML = parse(description);
+    script document.querySelector('#synonyms-text').innerHTML = synonymsParse(synonyms);

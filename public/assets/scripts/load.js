@@ -43,6 +43,15 @@ window.addEventListener("scroll", () => {
 });
 
 function load(index) {
+
+    if(Words[0] === 'nope') {
+        console.log("api not reachable");
+        document.querySelector('.center h1').innerHTML = "API not reachable :'("
+        document.querySelector('#loading-text').innerHTML = "API not reachable :'("
+        document.querySelector('.add-container').style.display = 'none';
+        document.querySelector('#loading').src = 'assets/images/gifs/failed.gif';
+        return 1;
+    }
     let tempArr = Words.slice(index, index+loadCount);
 
     loaded += tempArr.length;
@@ -50,7 +59,6 @@ function load(index) {
     tempArr.forEach(word => {
         const wordContainer = document.createElement("div");
         wordContainer.classList.add("word-container");
-        wordContainer.setAttribute("onclick", `window.location.href = '/word/${word.name}'`);
         const wordImage = document.createElement("div");
         wordImage.classList.add("word-image");
         const imageElement = document.createElement("img");
@@ -60,11 +68,24 @@ function load(index) {
         wordContainer.appendChild(wordImage);
         const wordInfo = document.createElement("div");
         wordInfo.classList.add("word-info");
+        const wordButtons = document.createElement("div");
+        wordButtons.classList.add("word-buttons");
+        wordInfo.classList.add("word-info");
         const wordTitle = document.createElement("div");
+        const deleteElement = document.createElement("img");
+        deleteElement.src = 'assets/images/delete.png';
+        const editElement = document.createElement("img");
+        editElement.setAttribute("onclick", `window.location.href = '/edit/word/${word.name}'`);
+        editElement.src = 'assets/images/edit.png';
+        wordButtons.appendChild(editElement);
+        wordButtons.appendChild(deleteElement);
+        const arrowElement = document.createElement("img");
+        arrowElement.src = "assets/images/right-arrow.png";
         wordTitle.classList.add("word-title");
+        wordTitle.setAttribute("onclick", `window.location.href = '/word/${word.name}'`);
+        deleteElement.setAttribute("onclick", `deleteConfirm("${word.name}");`);
         const titleElement = document.createElement("h1");
         titleElement.textContent = word.name;
-        const arrowElement = document.createElement("img");
         arrowElement.src = "assets/images/right-arrow.png";
         const wordEnglish = document.createElement("h2");
         wordEnglish.textContent = word.english;
@@ -73,6 +94,7 @@ function load(index) {
         wordInfo.appendChild(wordTitle);
         wordTitle.appendChild(wordEnglish);
         wordContainer.appendChild(wordInfo);
+        wordContainer.appendChild(wordButtons);
         container.appendChild(wordContainer);
     });
 }

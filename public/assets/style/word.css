@@ -7,9 +7,19 @@
     border: none;
     outline: none;
     -webkit-user-drag: none;
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
     user-select: none;
+}
+b {
+    font-weight: 800;
+}
+h2 {
+    font-weight: 500;
+}
+i {
+    font-weight: 500;
+    font-style: italic;
 }
 body {
     background-color: #538392;

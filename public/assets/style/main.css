@@ -96,7 +96,8 @@ body {
 .navbar .search-button img {
     width: 40px;
     cursor: pointer;
-    background: white;
+    background: #96C9F4;
+    border: 2px solid black;
     padding: 5px;
     border-radius: 2px;
     margin: 0 4px;
@@ -199,10 +200,8 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    cursor: pointer;
 }
 .word-container:hover {
-    transform: translateY(-2px);
     z-index: 1;
 }
 .word-image {
@@ -235,8 +234,31 @@ body {
     border-radius: 2vh;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+.word-title:hover {
+    transform: scale(1.01);
 }
 .word-title img {
     width: 20px;
     margin: 0 20px;
+}
+.word-buttons {
+    width: 5%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.word-buttons img {
+    width: 30px;
+    padding: 5px 0;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.word-buttons img:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.300);
 }
