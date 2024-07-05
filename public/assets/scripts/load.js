@@ -1,6 +1,6 @@
 const loading = document.querySelector("#loading");
 const container = document.querySelector(".main-container");
-const loadCount = 4;
+const loadCount = 16;
 let loaded = 0;
 let loadIndex;
 let Words = [];
@@ -28,22 +28,16 @@ let lastScrollTime = 0;
 
 
 window.addEventListener("scroll", () => {
-    const currentTime = Date.now();
-
-    if (currentTime - lastScrollTime >= 50) {
-        const isScrolledBeyondThreshold = loading.getBoundingClientRect().top < window.innerHeight+100;
-        if(isScrolledBeyondThreshold) {
-            if(loaded < totalWords) {
-                loadIndex++;
-                load(loadIndex*loadCount)
-                lastScrollTime = currentTime;
-            }
+    const isScrolledBeyondThreshold = loading.getBoundingClientRect().top < window.innerHeight+100;
+    if(isScrolledBeyondThreshold) {
+        if(loaded < totalWords) {
+            loadIndex++;
+            load(loadIndex*loadCount);
         }
     }
 });
 
 function load(index) {
-
     if(Words[0] === 'nope') {
         console.log("api not reachable");
         document.querySelector('.center h1').innerHTML = "API not reachable :'("
@@ -52,10 +46,16 @@ function load(index) {
         document.querySelector('#loading').src = 'assets/images/gifs/failed.gif';
         return 1;
     }
-    let tempArr = Words.slice(index, index+loadCount);
 
+    let tempArr = Words.slice(index, index+loadCount);
     loaded += tempArr.length;
+    document.querySelector('#count-info h3').innerHTML = `Loaded words: ${loaded} / ${totalWords}`
     
+    if(loaded == totalWords) {
+        document.querySelector('#loading').style.display = 'none';
+         document.querySelector('#loading-text').innerHTML = "That's all :' )"
+    }
+
     tempArr.forEach(word => {
         const wordContainer = document.createElement("div");
         wordContainer.classList.add("word-container");

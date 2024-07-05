@@ -19,7 +19,10 @@ html(lang="en")
                     .search-button
                         img(src="assets/images/search.png", alt="Search Icon")#search-button
                     .search-bar
-                        img(src="assets/images/back.png", alt="Back button")#back-button
+                        select#search-type(name="search-type")
+                            option(value="silamena") SILAMENA
+                            option(value="english") ENGLISH
+                            option(value="etymology") ROLE
                         input(type="text", name="search", placeholder="Search a word", autocomplete="off")#search-input
             .add-container
                 .add-button(onclick="window.location.href = '/new/word';")
@@ -28,10 +31,13 @@ html(lang="en")
                 .add-button(onclick="window.location.href = '/new/example';")
                     img(src="assets/images/example.png")
                     h1 New example
+            .center#count-info
+                h3 ciao
             .main-container#main-container
             .center
                 img#loading(src="assets/images/gifs/loading.gif", style="width: 200px; margin-top: 40px;")
                 h1#loading-text Nothing here?
+
 
     script(src="assets/scripts/search-animation.js")
     script(src="assets/scripts/search.js")

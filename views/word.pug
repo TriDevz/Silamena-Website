@@ -3,11 +3,12 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Word
+        title Word: #{word.name} - #{word.english}
         link(rel="stylesheet", href="../assets/style/word.css")
         link(rel="stylesheet", href="../assets/style/phone.css")
         script(src="../assets/scripts/roles.js")
         script(src="../assets/scripts/parser.js")
+        script(src="../assets/scripts/back.js")
     body
         input#description-placeholder(type="text", name="description", hidden, value=`${word.description}`)
         input#synonyms-placeholder(type="text", name="synonyms", hidden, value=`${word.synonyms}`)
@@ -18,16 +19,16 @@ html(lang="en")
                     h1 #{word.name}
                 .info-container
                     div
-                        h1 
+                        h1
                             span.key-word Translation:
                             span  #{word.english}
-                        h1 
+                        h1
                             span.key-word Role:
                             span#role
-                        h1 
+                        h1
                             span.key-word Etymology:
                             span  #{word.etymology}
-                        h1 
+                        h1
                             span.key-word Synonyms:
                             span#synonyms-text
                 .description-container#description-container

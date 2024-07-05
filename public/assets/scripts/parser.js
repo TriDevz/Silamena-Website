@@ -8,19 +8,24 @@ function parse(input) {
     htmlcode = htmlcode.replace(/<br>- /g, '<br>• ');              // \n- 
     htmlcode = htmlcode.replace(/^- */, "• ");                     // - at start
     htmlcode = htmlcode.replace(/@(\w+)/g, "<a href='$1'>$1</a>"); // @[word] -> a word
+    htmlcode = htmlcode.replace(/#\S+#/g, "");                     // removing tags
 
     
     return htmlcode;
 }
 
 function synonymsParse(input) {
-    const words = input.split(", ");
-    const anchorTags = [];
-    words.forEach(word => {
-        const anchor = document.createElement("a");
-        anchor.href = word.trim();
-        anchor.textContent = word.trim();
-        anchorTags.push(anchor.outerHTML);
-    });
-    return " " + anchorTags.join(", ");
+    if(input != 'none') {
+        const words = input.split(", ");
+        const anchorTags = [];
+        words.forEach(word => {
+            const anchor = document.createElement("a");
+            anchor.href = word.trim();
+            anchor.textContent = word.trim();
+            anchorTags.push(anchor.outerHTML);
+        });
+        return " " + anchorTags.join(", ");
+    } else {
+        return ' none';
+    }
 }

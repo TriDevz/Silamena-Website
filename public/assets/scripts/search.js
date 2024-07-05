@@ -1,8 +1,13 @@
 const sBarValue = document.querySelector('#search-input');
+const sType = document.querySelector('#search-type');
 
-function filter(arr, init) {
+function filterSilamena(arr, init) {
     const searchTermLower = init.toLowerCase();
     return arr.filter(obj => obj.name.toLowerCase().startsWith(searchTermLower));
+}
+function filterEnglish(arr, init) {
+    const searchTermLower = init.toLowerCase();
+    return arr.filter(obj => obj.english.toLowerCase().includes(searchTermLower));
 }
 
 function capitalizeFirstLetter(str) {
@@ -10,8 +15,19 @@ function capitalizeFirstLetter(str) {
 }
 
 sinp.addEventListener('input', async (e) => {
+    let filteredWords;
     if(sinp.value) {
-        filteredWords = await filter(inWords, sinp.value);
+        switch (sType.value) {
+            case 'silamena':
+                filteredWords = await filterSilamena(inWords, sinp.value);
+                break;
+            case 'english':
+                filteredWords = await filterEnglish(inWords, sinp.value);
+                break;
+            default:
+                initLoading(inWords);
+                break;
+        }
         initLoading(filteredWords);
     } else {
         initLoading(inWords);

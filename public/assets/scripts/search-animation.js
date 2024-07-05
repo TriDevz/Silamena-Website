@@ -1,9 +1,9 @@
 const sb = document.querySelector('#search-button');
 const n = document.querySelector('.navbar');
 const sbar = document.querySelector('.search-bar');
-const bb = document.querySelector('#back-button');
 const sinp = document.querySelector('#search-input');
 const title = document.querySelector('.navbar .title-text');
+const searchType = document.querySelector('#search-type');
 
 var searchOn = false;
 function searchSwitch() {searchOn = !searchOn}
@@ -18,7 +18,6 @@ function off() {
     sbar.classList.remove('active');
     searchSwitch();
 }
-
 sb.addEventListener('click', () => {
     if(!searchOn) {
         title.classList.add('off');
@@ -31,14 +30,8 @@ sb.addEventListener('click', () => {
         });
     }
 });
-bb.addEventListener('click', () => {
-    if(searchOn) {
-        off();
-        return;
-    }
-});
 document.addEventListener('click', (event) => {
-    if(event.target !== sb && !sinp.contains(event.target)) {
+    if(event.target !== sb && !sinp.contains(event.target) && event.target != searchType) {
         if(searchOn) {
             off();
             return;
