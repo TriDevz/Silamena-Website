@@ -7,7 +7,7 @@ function parse(input) {
     htmlcode = htmlcode.replace(/_([^_]+)_/g, '<i>$1</i>');        // italic
     htmlcode = htmlcode.replace(/<br>- /g, '<br>• ');              // \n- 
     htmlcode = htmlcode.replace(/^- */, "• ");                     // - at start
-    htmlcode = htmlcode.replace(/@(\w+)/g, "<a href='$1'>$1</a>"); // @[word] -> a word
+    htmlcode = htmlcode.replace(/@(\w+)@/g, "<a href='$1'>$1</a>"); // @[word] -> a word
     htmlcode = htmlcode.replace(/#\S+#/g, "");                     // removing tags
 
     
