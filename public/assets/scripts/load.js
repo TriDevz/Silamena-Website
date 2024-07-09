@@ -50,10 +50,13 @@ function load(index) {
     let tempArr = Words.slice(index, index+loadCount);
     loaded += tempArr.length;
     document.querySelector('#count-info h3').innerHTML = `Loaded words: ${loaded} / ${totalWords}`
-    
-    if(loaded == totalWords) {
-        document.querySelector('#loading').style.display = 'none';
-         document.querySelector('#loading-text').innerHTML = "That's all :' )"
+
+    if(loaded == totalWords && totalWords) {
+        document.querySelector('#loading').src = 'assets/images/gifs/end.gif';
+        document.querySelector('#loading-text').innerHTML = "That's all :' )"
+    } else if(!totalWords) {
+        document.querySelector('#loading').src = 'assets/images/gifs/loading.gif';
+        document.querySelector('#loading-text').innerHTML = "Nothing here?"
     }
 
     tempArr.forEach(word => {

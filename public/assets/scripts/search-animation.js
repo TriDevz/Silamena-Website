@@ -14,6 +14,7 @@ function sleep(ms) {
 function off() {
     title.classList.remove('off');
     sb.classList.remove('off');
+    sinp.blur();
     sbar.classList.add('off');
     sbar.classList.remove('active');
     searchSwitch();

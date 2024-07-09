@@ -60,7 +60,7 @@ app.get('/edit/word/:word', (req, res) => {
 })
 
 //POSTS
-app.post('/new-word', (req, res) => {
+app.post('/new-word', async (req, res) => {
     let data = req.body;
     axios.post(URL + '/api/words/new', data).then(response => {
         res.redirect('/');
@@ -77,7 +77,7 @@ app.post('/new-example', (req, res) => {
         console.error(error);
     });
 });
-app.post('/edit-word', (req, res) => {
+app.post('/edit-word', async (req, res) => {
     let data = {
         etymology: req.body.etymology,
         description: req.body.description,

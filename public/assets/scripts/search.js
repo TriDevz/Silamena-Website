@@ -7,7 +7,9 @@ function filterSilamena(arr, init) {
 }
 function filterEnglish(arr, init) {
     const searchTermLower = init.toLowerCase();
-    return arr.filter(obj => obj.english.toLowerCase().includes(searchTermLower));
+    return arr.filter(obj => {
+        return(obj.english.startsWith(searchTermLower) || obj.english.includes(`, ${searchTermLower}`) || obj.english.includes(`/${searchTermLower}`));
+    });
 }
 
 function capitalizeFirstLetter(str) {
@@ -25,7 +27,7 @@ sinp.addEventListener('input', async (e) => {
                 filteredWords = await filterEnglish(inWords, sinp.value);
                 break;
             default:
-                initLoading(inWords);
+                filteredWords = inWords;
                 break;
         }
         initLoading(filteredWords);

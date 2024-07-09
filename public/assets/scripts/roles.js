@@ -1,4 +1,4 @@
-const roles = ["", "Noun", "Verb", "Number", "Conjuction", "Preposition", "Adverb", "Auxiliary", "Adjective", "Pronoun", "Interjection", "Other"];
+const roles = ["", "noun", "verb", "number", "conjuction", "preposition", "adverb", "auxiliary", "adjective", "pronoun", "interjection", "other"];
 
 function decRole(n) {
     return roles[n];

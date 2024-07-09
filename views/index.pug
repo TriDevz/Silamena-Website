@@ -22,7 +22,6 @@ html(lang="en")
                         select#search-type(name="search-type")
                             option(value="silamena") SILAMENA
                             option(value="english") ENGLISH
-                            option(value="etymology") ROLE
                         input(type="text", name="search", placeholder="Search a word", autocomplete="off")#search-input
             .add-container
                 .add-button(onclick="window.location.href = '/new/word';")
@@ -32,7 +31,7 @@ html(lang="en")
                     img(src="assets/images/example.png")
                     h1 New example
             .center#count-info
-                h3 ciao
+                h3
             .main-container#main-container
             .center
                 img#loading(src="assets/images/gifs/loading.gif", style="width: 200px; margin-top: 40px;")
