@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="icon", type="image/x-icon" href="/assets/images/logo_dictionary-rounded.png")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Silamena Dictionary
+        link(rel="stylesheet", href="assets/style/main.css")
+        link(rel="stylesheet", href="assets/style/phone.css")
+        script(src="assets/scripts/roles.js")
+        script let inWords = !{ JSON.stringify(list) }
+    body
+        .black
+            .center(style="flex-direction: column;")
+                .navbar
+                    .title-text(style="cursor:pointer;", onclick="window.location.href = '/'")
+                        img(src="assets/images/logo.png")
+                        h1 Silamena Dictionary
+                    .search-button
+                        img(src="assets/images/search.png", alt="Search Icon")#search-button
+                    .search-bar
+                        select#search-type(name="search-type")
+                            option(value="silamena") SILAMENA
+                            option(value="english") ENGLISH
+                            option(value="etymology") ROLE
+                        input(type="text", name="search", placeholder="Search a word", autocomplete="off")#search-input
+            .add-container
+                .add-button(onclick="window.location.href = '/new/word';")
+                    img(src="assets/images/word.png")
+                    h1 New word
+                .add-button(onclick="window.location.href = '/new/example';")
+                    img(src="assets/images/example.png")
+                    h1 New example
+            .center#count-info
+                h3 ciao
+            .main-container#main-container
+            .center
+                img#loading(src="assets/images/gifs/loading.gif", style="width: 200px; margin-top: 40px;")
+                h1#loading-text Nothing here?
+
+
+    script(src="assets/scripts/search-animation.js")
+    script(src="assets/scripts/search.js")
+    script(src="assets/scripts/load.js")
+    script initLoading(inWords)
+    script(src="assets/scripts/delete.js")

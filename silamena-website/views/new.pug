@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Word
+        link(rel="stylesheet", href="../assets/style/new.css")
+        link(rel="stylesheet", href="../assets/style/phone.css")
+    body
+        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="window.location.href = '/'")
+        .center
+            form#new-word-form(action="/new-word", method="POST")
+                input#name(type="text", name="name", placeholder="Silamena word" required, autocomplete="off")
+                input#etymology(type="text", name="etymology", placeholder="Etymology" required, autocomplete="off")
+                select#role(name="role", placeholder="salve")
+                    option(value="11") Other
+                    option(value="1") Noun
+                    option(value="2") Verb
+                    option(value="3") Number
+                    option(value="4") Conjuction
+                    option(value="5") Preposition
+                    option(value="6") Adverb
+                    option(value="7") Auxiliary
+                    option(value="8") Adjective
+                    option(value="9") Pronoun
+                    option(value="10") Interjection
+                input#english(type="text", name="english", placeholder="English translations" required, autocomplete="off")
+                textarea#description(type="text", name="description", placeholder="Description" required, autocomplete="off")
+                input#synonyms(type="text", name="synonyms", placeholder="Synonyms" required, autocomplete="off")
+                input#submit(type="submit", value="Submit" style="margin-top: 40px; height: 60px; width: calc(60% + 20px); cursor: pointer;")
+    script.
+        document.querySelector('#name').focus();

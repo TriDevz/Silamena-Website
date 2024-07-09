@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const path = require('path');
+const URL = "https://eu-silamena-api-5a163c1570be.herokuapp.com";
 
 //USES
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,7 +19,7 @@ app.get('/word/:word', (req, res) => {
     const data = {
         names: [word]
     }
-    axios.post('http://localhost:3005/api/words/data', data).then(response => {
+    axios.post(URL + '/api/words/data', data).then(response => {
         let data = response.data;
         if(data.data.length) {
             data.data[0].description = data.data[0].description.replace(/\r\n|\r|\n/g, '<br>');
@@ -43,7 +44,7 @@ app.get('/edit/word/:word', (req, res) => {
     const data = {
         names: [word]
     }
-    axios.post('http://localhost:3005/api/words/data', data).then(response => {
+    axios.post(URL + '/api/words/data', data).then(response => {
         let data = response.data;
         
         if(data.data.length) {
@@ -61,7 +62,7 @@ app.get('/edit/word/:word', (req, res) => {
 //POSTS
 app.post('/new-word', (req, res) => {
     let data = req.body;
-    axios.post('http://localhost:3005/api/words/new', data).then(response => {
+    axios.post(URL + '/api/words/new', data).then(response => {
         res.redirect('/');
     }).catch(error => {
         res.send(error);
@@ -69,7 +70,7 @@ app.post('/new-word', (req, res) => {
     });
 });
 app.post('/new-example', (req, res) => {
-    axios.post('http://localhost:3005/api/examples/new', req.body).then(response => {
+    axios.post(URL + '/api/examples/new', req.body).then(response => {
         res.redirect('/');
     }).catch(error => {
         res.send(error)
@@ -84,7 +85,7 @@ app.post('/edit-word', (req, res) => {
         english: req.body.english,
         role: req.body.role,
     }
-    axios.put(`http://localhost:3005/api/words/${req.body.oldName}`, data).then(response => {
+    axios.put(URL + `/api/words/${req.body.oldName}`, data).then(response => {
         res.redirect('/');
     }).catch(error => {
         res.send(error);
@@ -92,7 +93,7 @@ app.post('/edit-word', (req, res) => {
     });
 });
 app.get('/', (req, res) => {
-    axios.get('http://localhost:3005/api/words/all-english').then(response => {
+    axios.get(URL + '/api/words/all-english').then(response => {
         let data = {
             list: response.data
         }
@@ -106,4 +107,4 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(8080, () => {console.log("Server on :8080")});
+app.listen(process.env.PORT || 8080, () => {console.log("Server on :8080")});

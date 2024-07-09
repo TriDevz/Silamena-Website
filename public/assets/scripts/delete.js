@@ -3,9 +3,11 @@ function deleteConfirm(name) {
         sendDelete(name);
     }
 }
+const URL = "https://eu-silamena-api-5a163c1570be.herokuapp.com";
+
 async function sendDelete(name) {
     try{
-        await fetch(`http://localhost:3005/api/words/${name}`, { method: 'DELETE' });
+        await fetch(URL + `/api/words/${name}`, { method: 'DELETE' });
         location.reload();
     } catch(e) {
         alert(`Error deleting ${name}, more info in console`);

@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Word
+        link(rel="stylesheet", href="../assets/style/new.css")
+        link(rel="stylesheet", href="../assets/style/phone.css")
+        script(src="../assets/scripts/back.js")
+    body
+        img#back(src="../assets/images/left-arrow.png", title="Go back", onclick="history.back()")
+        .center
+            form#new-word-form(action="/new-example", method="POST")
+                textarea#silamena-example(type="text", name="silamena", placeholder="Silamena text" required, autocomplete="off")
+                textarea#english-example(type="text", name="english", placeholder="English translation" required, autocomplete="off")
+                input#submit(type="submit", value="Submit" style="margin-top: 40px; height: 60px; width: calc(60% + 20px); cursor: pointer;")
+    script.
+        document.querySelector('#silamena-example').focus();
