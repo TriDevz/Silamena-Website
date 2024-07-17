@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const path = require('path');
-const URL = "https://eu-silamena-api-5a163c1570be.herokuapp.com";
+const URL = "https://mild-mureil-tridevs-6ffae980.koyeb.app";
 
 //USES
 app.use(express.static(path.join(__dirname, 'public')));
