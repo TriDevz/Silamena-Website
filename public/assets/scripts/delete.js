@@ -3,7 +3,7 @@ function deleteConfirm(name) {
         sendDelete(name);
     }
 }
-const URL = "https://eu-silamena-api-5a163c1570be.herokuapp.com";
+const URL = "https://mild-mureil-tridevs-6ffae980.koyeb.app/";
 
 async function sendDelete(name) {
     try{
