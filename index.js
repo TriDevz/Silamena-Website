@@ -92,6 +92,14 @@ app.post('/edit-word', async (req, res) => {
         console.error(error);
     });
 });
+app.get('/delete-word/:word', async (req, res) => {
+    const word = req.params.word;
+    axios.delete(URL + `/api/words/${word}`).then(response => {
+        res.status(400).json({response});
+    }).catch(error => {
+        res.send('Nope' + error);
+    })
+})
 app.get('/', (req, res) => {
     axios.get(URL + '/api/words/all-english').then(response => {
         let data = {
