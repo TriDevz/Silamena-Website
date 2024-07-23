@@ -1,0 +1,35 @@
+const prText = document.querySelector('#pronunciation');
+const text = document.querySelector('.title-container h1').innerHTML;
+var result = text;
+
+result = result.replaceAll('sh', 'ʃ')
+result = result.replaceAll('ts', 'ts')
+result = result.replaceAll('dz', 'dz')
+result = result.replaceAll('dj', 'dʒ')
+result = result.replaceAll('a', 'ʌ')
+result = result.replaceAll('b', 'b')
+result = result.replaceAll('c', 'tʃ')
+result = result.replaceAll('d', 'd')
+result = result.replaceAll('e', 'ɛ')
+result = result.replaceAll('f', 'f')
+result = result.replaceAll('g', 'g')
+result = result.replaceAll('h', 'h')
+result = result.replaceAll('i', 'i')
+result = result.replaceAll('j', 'ʒ')
+result = result.replaceAll('k', 'k')
+result = result.replaceAll('l', 'l')
+result = result.replaceAll('m', 'm')
+result = result.replaceAll('n', 'n')
+result = result.replaceAll('o', 'o')
+result = result.replaceAll('p', 'p')
+result = result.replaceAll('r', 'r')
+result = result.replaceAll('s', 's')
+result = result.replaceAll('t', 't')
+result = result.replaceAll('u', 'u')
+result = result.replaceAll('v', 'v')
+result = result.replaceAll('w', 'ə')
+result = result.replaceAll('x', 'ç')
+result = result.replaceAll('y', 'ɨ')
+result = result.replaceAll('z', 'z')
+
+prText.innerHTML = `[${result}]`;

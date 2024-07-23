@@ -3,6 +3,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon", type="../image/x-icon" href="/assets/images/word.png")
         title Word: #{word.name} - #{word.english}
         link(rel="stylesheet", href="../assets/style/word.css")
         link(rel="stylesheet", href="../assets/style/phone.css")
@@ -17,6 +18,7 @@ html(lang="en")
             .main-container
                 .title-container
                     h1 #{word.name}
+                    h2#pronunciation 
                 .info-container
                     div
                         h1
@@ -38,3 +40,4 @@ html(lang="en")
     script const synonyms = document.querySelector('#synonyms-placeholder').value;
     script document.querySelector('#description-container h2').innerHTML = parse(description);
     script document.querySelector('#synonyms-text').innerHTML = synonymsParse(synonyms);
+    script(src="../assets/scripts/pronunciation.js") 
